@@ -1,6 +1,6 @@
 <div class="container mt-5 container-fluid">
   <div class="card align-items-center border-0 p-2">
-    <div class="card-body table-responsive-sm">
+    <div class="card-body table-responsive-sm shadow rounded-3">
       <h4 class="card-title">Lista Equipos Médicos</h4>
       <hr />
       <h5 *ngIf="equipos.length == 0" class="text-center mt-2">No hay datos</h5>
@@ -10,7 +10,7 @@
         >
           <thead>
             <tr>
-              <th scope="col">Nombre</th>
+              <th scope="col" class="text-primary">Nombre</th>
               <th scope="col">Marca</th>
               <th scope="col">Ubicación</th>
               <th scope="col">Serie</th>
