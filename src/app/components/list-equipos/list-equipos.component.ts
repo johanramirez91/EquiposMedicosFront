@@ -1,3 +1,4 @@
+import { EquipomedicoService } from './../../services/equipomedico.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,10 +8,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListEquiposComponent implements OnInit {
 
-  equipos: object[] = []
-  constructor() { }
+  equipos: any[] = []
+  constructor(
+    private _equiposService: EquipomedicoService
+  ) { }
 
   ngOnInit(): void {
+    this.getEquipos();
+  }
+
+  getEquipos(){
+    this._equiposService.getAll().subscribe((data) => {
+      console.log(data)
+      data.forEach((element:object) => {
+        this.equipos.push({
+          id: data.id,
+          ...element
+        })
+      });
+      console.log(this.equipos)
+    })
   }
 
 }

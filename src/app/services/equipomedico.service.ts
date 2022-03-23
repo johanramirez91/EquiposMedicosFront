@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -8,7 +8,9 @@ import { Observable } from 'rxjs';
 export class EquipomedicoService {
   stockURL: string = 'http://localhost:8080/stock/';
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(private http: HttpClient) {}
 
-
+  public getAll(): Observable<any> {
+    return this.http.get(`${this.stockURL}` + 'listaEM');
+  }
 }
