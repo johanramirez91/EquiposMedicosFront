@@ -27,7 +27,6 @@ export class ListEquiposComponent implements OnInit {
     });
   }
 }
-
 export interface Equipo {
   id: string;
   nombre: string;
@@ -37,5 +36,4 @@ export interface Equipo {
   descripcion: string;
   fechaMantenimiento: number;
   fechaAdquisicion: number;
-
 }

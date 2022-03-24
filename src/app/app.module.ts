@@ -6,18 +6,25 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { NotfoundComponent } from './pages/notfound/notfound.component';
+import { AddEquipoComponent } from './components/add-equipo/add-equipo.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { NotifierModule } from 'angular-notifier';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     ListEquiposComponent,
-    NotfoundComponent
+    NotfoundComponent,
+    AddEquipoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    NotifierModule
   ],
   providers: [],
   bootstrap: [AppComponent]
