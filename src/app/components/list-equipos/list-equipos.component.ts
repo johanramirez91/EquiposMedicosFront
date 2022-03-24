@@ -2,7 +2,7 @@ import { EquipomedicoService } from './../../services/equipomedico.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-list-equipos',
+  selector: 'list-equipos',
   templateUrl: './list-equipos.component.html',
   styleUrls: ['./list-equipos.component.scss']
 })
