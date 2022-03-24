@@ -32,7 +32,7 @@
               <td>{{ equipo.fechaMantenimiento | date }}</td>
               <td>{{ equipo.fechaAdquisicion | date }}</td>
               <td><i class="bi-pencil-square fs-5 mx-2 link-warning" role="button"></i></td>
-              <td><i class="bi-trash3-fill fs-5 mx-1 link-danger" role="button"></i></td>
+              <td><i class="bi-trash3-fill fs-5 mx-1 link-danger" role="button" (click)="deleteEquipo(equipo.id)"></i></td>
             </tr>
           </tbody>
         </table>

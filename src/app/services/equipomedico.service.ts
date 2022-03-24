@@ -1,3 +1,4 @@
+import { Equipo } from './../components/list-equipos/list-equipos.component';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -10,7 +11,11 @@ export class EquipomedicoService {
 
   constructor(private http: HttpClient) {}
 
-  public getAll(): Observable<any> {
-    return this.http.get(`${this.stockURL}` + 'listaEM');
+  public getAll(): Observable<Equipo[]> {
+    return this.http.get<Equipo[]>(`${this.stockURL}` + 'listaEM');
+  }
+
+  public delete(id: string){
+    return this.http.delete(`${this.stockURL}` + 'eliminar/' + id)
   }
 }
