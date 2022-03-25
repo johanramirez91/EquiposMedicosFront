@@ -1,5 +1,5 @@
 import { Equipo } from './../components/list-equipos/list-equipos.component';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { EquipoForm } from '../components/add-equipo/add-equipo.component';
@@ -12,6 +12,11 @@ export class EquipomedicoService {
 
   constructor(private http: HttpClient) {}
 
+  public getId(id: string){
+    return this.http.get(`${this.stockURL}` + 'getById/' + id)
+
+  }
+
   public getAll(): Observable<Equipo[]> {
     return this.http.get<Equipo[]>(`${this.stockURL}` + 'listaEM');
   }
@@ -22,5 +27,10 @@ export class EquipomedicoService {
 
   public create(equipo: EquipoForm) {
     return this.http.post(`${this.stockURL}` + 'addEM/', equipo);
+  }
+
+  public update(id: string, equipo: Equipo){
+    console.log(equipo)
+    return this.http.put(`${this.stockURL}` + 'updateEM/' + id, equipo);
   }
 }

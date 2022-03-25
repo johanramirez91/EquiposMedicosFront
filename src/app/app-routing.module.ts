@@ -19,6 +19,10 @@ const routes: Routes = [
     component: AddEquipoComponent
   },
   {
+    path: 'editar-equipo/:id',
+    component: AddEquipoComponent
+  },
+  {
     path: '**',
     component: NotfoundComponent
   },

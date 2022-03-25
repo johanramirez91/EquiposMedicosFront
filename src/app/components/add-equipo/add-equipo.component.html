@@ -2,15 +2,18 @@
   <div class="row">
     <div class="card text-center shadow">
       <div class="card-body">
-        <h4>Agregar Nuevo Equipo</h4>
+        <h4>{{titulo}}</h4>
         <hr />
         <div class="d-flex justify-content-center row">
           <div *ngIf="loading" class="spinner-border col-12" role="status">
             <span class="visually-hidden">loading...</span>
           </div>
+          <span *ngIf="submited" class="text-danger">
+            ¡Todos los campos son requeridos!
+          </span>
           <form
             [formGroup]="createEquipo"
-            (ngSubmit)="agregarEquipo()"
+            (ngSubmit)="agregaroEditarEquipo()"
             class="mt-4"
           >
             <div class="row">
@@ -20,6 +23,7 @@
                   class="form-control shadow-sm"
                   placeholder="Nombre"
                   formControlName="nombre"
+                  required
                 />
               </div>
               <div class="col-6">
@@ -28,6 +32,7 @@
                   class="form-control shadow-sm"
                   placeholder="Ubicación"
                   formControlName="ubicacion"
+                  required
                 />
               </div>
             </div>
@@ -38,6 +43,7 @@
                   class="form-control shadow-sm"
                   placeholder="Marca"
                   formControlName="marca"
+                  required
                 />
               </div>
               <div class="col-6">
@@ -46,6 +52,7 @@
                   class="form-control shadow-sm"
                   placeholder="No. Serie"
                   formControlName="serie"
+                  required
                 />
               </div>
             </div>
@@ -56,6 +63,7 @@
                   class="form-control shadow-sm"
                   placeholder="Descripción"
                   formControlName="descripcion"
+                  required
                 />
               </div>
             </div>
@@ -67,6 +75,7 @@
                   class="form-control shadow-sm mt-1"
                   placeholder="Fecha de mantenimiento"
                   formControlName="fechaMantenimiento"
+                  required
                 />
               </div>
               <div class="col-6">
@@ -75,6 +84,7 @@
                   type="date"
                   class="form-control shadow-sm mt-1"
                   formControlName="fechaAdquisicion"
+                  required
                 />
               </div>
             </div>
@@ -86,8 +96,8 @@
               >
                 Regresar
               </button>
-              <button type="submit" class="btn btn-dark">
-                Agregar
+              <button type="submit" [ngClass]="titulo === 'Editar Equipo' ? 'btn btn-warning' : 'btn btn-primary'">
+                {{titulo}}
                 <span class="bi-plus-lg"></span>
               </button>
             </div>

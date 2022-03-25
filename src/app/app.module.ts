@@ -9,6 +9,7 @@ import { NotfoundComponent } from './pages/notfound/notfound.component';
 import { AddEquipoComponent } from './components/add-equipo/add-equipo.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 
 @NgModule({
@@ -17,14 +18,15 @@ import { ToastrModule } from 'ngx-toastr';
     NavbarComponent,
     ListEquiposComponent,
     NotfoundComponent,
-    AddEquipoComponent
+    AddEquipoComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

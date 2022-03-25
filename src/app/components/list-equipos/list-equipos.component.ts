@@ -18,7 +18,6 @@ export class ListEquiposComponent implements OnInit {
 
   getEquipos() {
     this._equiposService.getAll().subscribe((data) => {
-      console.log(data)
       this.equipos = [...data]
     });
   }
@@ -26,7 +25,10 @@ export class ListEquiposComponent implements OnInit {
   deleteEquipo(id: string) {
     this._equiposService.delete(id).subscribe(() => {
       this.getEquipos()
-      this.toast.success('Prueba', 'Toaster')
+      this.toast.error('Se eliminó un registro', '¡Equipo eliminado!', {
+        positionClass: 'toast-bottom-center',
+        progressBar: true,
+      });
     });
   }
 }
