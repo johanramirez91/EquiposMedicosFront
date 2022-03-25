@@ -1,5 +1,6 @@
 import { EquipomedicoService } from './../../services/equipomedico.service';
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'list-equipos',
@@ -8,7 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListEquiposComponent implements OnInit {
   equipos: Equipo[] = [];
-  constructor(private _equiposService: EquipomedicoService) {}
+  constructor(private _equiposService: EquipomedicoService, private toast: ToastrService) {
+  }
 
   ngOnInit(): void {
     this.getEquipos();
@@ -24,6 +26,7 @@ export class ListEquiposComponent implements OnInit {
   deleteEquipo(id: string) {
     this._equiposService.delete(id).subscribe(() => {
       this.getEquipos()
+      this.toast.success('Prueba', 'Toaster')
     });
   }
 }

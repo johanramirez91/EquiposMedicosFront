@@ -16,7 +16,7 @@ export class AddEquipoComponent implements OnInit {
   constructor(
     private form: FormBuilder,
     private _equipoService: EquipomedicoService,
-    private router: Router
+    private router: Router,
   ) {
     this.createEquipo = this.form.group({
       nombre: ['', Validators.required],
@@ -45,7 +45,6 @@ export class AddEquipoComponent implements OnInit {
     this.loading = true;
     this._equipoService.create(equipo).subscribe(() => {
       this.loading = false;
-      console.log(equipo);
       this.router.navigate(['/list-equipos'])
     })
   }
