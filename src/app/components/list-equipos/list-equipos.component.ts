@@ -9,8 +9,10 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ListEquiposComponent implements OnInit {
   equipos: Equipo[] = [];
-  constructor(private _equiposService: EquipomedicoService, private toast: ToastrService) {
-  }
+  constructor(
+    private _equiposService: EquipomedicoService,
+    private toast: ToastrService
+  ) {}
 
   ngOnInit(): void {
     this.getEquipos();
@@ -18,13 +20,13 @@ export class ListEquiposComponent implements OnInit {
 
   getEquipos() {
     this._equiposService.getAll().subscribe((data) => {
-      this.equipos = [...data]
+      this.equipos = [...data];
     });
   }
 
   deleteEquipo(id: string) {
     this._equiposService.delete(id).subscribe(() => {
-      this.getEquipos()
+      this.getEquipos();
       this.toast.error('Se eliminó un registro', '¡Equipo eliminado!', {
         positionClass: 'toast-bottom-center',
         progressBar: true,

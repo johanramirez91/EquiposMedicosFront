@@ -2,7 +2,7 @@
   <div class="row">
     <div class="card text-center shadow">
       <div class="card-body">
-        <h4>{{titulo}}</h4>
+        <h4>{{ titulo }}</h4>
         <hr />
         <div class="d-flex justify-content-center row">
           <div *ngIf="loading" class="spinner-border col-12" role="status">
@@ -91,13 +91,23 @@
             <div class="mt-3">
               <button
                 type="text"
+                tooltip="Volver atras"
+                [delay]="200"
+                placement="bottom"
                 class="btn btn-secondary m-3 bi-caret-left-fill"
                 [routerLink]="['/list-equipos']"
               >
                 Regresar
               </button>
-              <button type="submit" [ngClass]="titulo === 'Editar Equipo' ? 'btn btn-warning' : 'btn btn-primary'">
-                {{titulo}}
+              <button
+                type="submit"
+                [ngClass]="
+                  titulo === 'Editar Equipo'
+                    ? 'btn btn-warning'
+                    : 'btn btn-primary'
+                "
+              >
+                {{ titulo }}
                 <span class="bi-plus-lg"></span>
               </button>
             </div>
