@@ -1,0 +1,79 @@
+<div class="container mt-5 mb-5">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="ard align-items-center border-0">
+        <div class="card-body shadow rounded-3">
+          <div class="row">
+            <div class="col-10">
+              <h4 class="card-title text-primary">Lista Equipos Médicos</h4>
+            </div>
+            <div class="col-2">
+              <button
+                type="button"
+                tooltip="Agregar un equipo"
+                [delay]="200"
+                class="btn btn-outline-primary shadow-sm bi-plus-circle-fill float-end"
+                [routerLink]="['/add-equipo']"
+              >
+                Nuevo
+              </button>
+            </div>
+          </div>
+          <hr />
+          <h5 *ngIf="equipos.length == 0" class="text-center mt-2">
+            No hay datos
+          </h5>
+          <div class="table-responsive">
+            <table
+              *ngIf="equipos.length > 0"
+              class="table table-striped table-hover mt-3 align-middle"
+            >
+              <thead>
+                <tr>
+                  <th scope="col" class="text-primary">Nombre</th>
+                  <th scope="col" class="text-primary">Marca</th>
+                  <th scope="col" class="text-primary">Ubicación</th>
+                  <th scope="col" class="text-primary">Serie</th>
+                  <th scope="col" class="text-primary">Descripción</th>
+                  <th scope="col" class="text-primary">Mantenimiento</th>
+                  <th scope="col" class="text-primary">Adquisición</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let equipo of equipos">
+                  <th>{{ equipo.nombre }}</th>
+                  <td>{{ equipo.marca }}</td>
+                  <td>{{ equipo.ubicacion }}</td>
+                  <td>{{ equipo.serie }}</td>
+                  <td>{{ equipo.descripcion }}</td>
+                  <td>{{ equipo.fechaMantenimiento | date }}</td>
+                  <td>{{ equipo.fechaAdquisicion | date }}</td>
+                  <td>
+                    <i
+                      class="bi-pencil-square fs-5 mx-2 link-warning"
+                      role="button"
+                      tooltip="Editar información"
+                      placement="left"
+                      [delay]="200"
+                      [routerLink]="['/editar-equipo/', equipo.id]"
+                    ></i>
+                  </td>
+                  <td>
+                    <i
+                      class="bi-trash3-fill fs-5 mx-1 link-danger"
+                      role="button"
+                      tooltip="Eliminar equipo"
+                      placement="left"
+                      [delay]="200"
+                      (click)="deleteEquipo(equipo.id)"
+                    ></i>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
